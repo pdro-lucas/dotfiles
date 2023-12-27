@@ -10,6 +10,14 @@ local plugins = {
   },
   {
     "neovim/nvim-lspconfig",
+    dependencies = {
+      "jose-elias-alvarez/null-ls.nvim",
+      "MunifTanjim/prettier.nvim",
+      config = function ()
+        require "custom.configs.null-ls"
+        require("custom.configs.prettier")
+      end,
+    },
     config = function ()
       require("plugins.configs.lspconfig")
       require("custom.configs.lspconfig")
