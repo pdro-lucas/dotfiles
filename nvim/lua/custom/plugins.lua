@@ -4,7 +4,9 @@ local plugins = {
     opts = {
       ensure_installed = {
         "typescript-language-server",
-        "tailwindcss-language-server"
+        "tailwindcss-language-server",
+        "eslint-lsp",
+        "prettier"
       }
     }
   },
@@ -12,15 +14,24 @@ local plugins = {
     "neovim/nvim-lspconfig",
     dependencies = {
       "jose-elias-alvarez/null-ls.nvim",
-      "MunifTanjim/prettier.nvim",
-      config = function ()
-        require "custom.configs.null-ls"
-        require("custom.configs.prettier")
-      end,
     },
     config = function ()
       require("plugins.configs.lspconfig")
       require("custom.configs.lspconfig")
+    end
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = "VeryLazy",
+    config = function ()
+      require("custom.configs.lint")
+    end
+  },
+  {
+    "mhartington/formatter.nvim",
+    event = "VeryLazy",
+    opts = function ()
+      return require "custom.configs.formatter"
     end
   },
   {
