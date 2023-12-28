@@ -10,28 +10,24 @@ local plugins = {
       }
     }
   },
-  {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      "jose-elias-alvarez/null-ls.nvim",
+   {
+      "nvimtools/none-ls.nvim",
+      config = function ()
+        local null_ls = require("null-ls")
+
+        null_ls.setup({
+          sources = {
+            null_ls.builtins.formatting.stylua,
+          },
+        })
+        vim.keymap.set("n", "<leader>gf", vim.lsp.buf.format, {})
+      end
     },
-    config = function ()
+    {
+    "neovim/nvim-lspconfig",
+      config = function ()
       require("plugins.configs.lspconfig")
       require("custom.configs.lspconfig")
-    end
-  },
-  {
-    "mfussenegger/nvim-lint",
-    event = "VeryLazy",
-    config = function ()
-      require("custom.configs.lint")
-    end
-  },
-  {
-    "mhartington/formatter.nvim",
-    event = "VeryLazy",
-    opts = function ()
-      return require "custom.configs.formatter"
     end
   },
   {
