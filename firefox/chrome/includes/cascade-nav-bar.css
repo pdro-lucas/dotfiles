@@ -126,3 +126,7 @@
 #sidebar-title {
     display: none
 }
+
+#sidebar-splitter {
+  display: none
+}
