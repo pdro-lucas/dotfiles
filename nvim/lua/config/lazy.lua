@@ -10,7 +10,7 @@ require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins", opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "tokyonight",
     } },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.lang.typescript" },
@@ -42,9 +42,6 @@ require("lazy").setup({
       -- disable some rtp plugins
       disabled_plugins = {
         "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",
