@@ -28,4 +28,4 @@ opt.splitkeep = "cursor" -- Keep windows open when closing a buffer
 opt.mouse = ""
 opt.formatoptions:remove({ "r" }) -- Do not automatically insert the comment leader after hitting <Enter>
 
-opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Use the system clipboard
+opt.clipboard = "unnamedplus" -- Use system clipboard
